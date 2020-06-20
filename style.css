@@ -1,21 +1,61 @@
+@import url('https://fonts.googleapis.com/css2?family=Black+Ops+One&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+.container{
+    background-color: #0C920C;
+    width:420px;
+    /* height:500px; */
+}
+
 .grid{
     height:400px;
     width:400px;
-    border:1px solid black;
+    border:10px solid #0C920C;
     display:flex;
     flex-wrap: wrap;
-    background-color: rgb(182, 182, 182);
+    /* background-color: rgb(207, 207, 207); */
+    background-color: #51d351;
 }
 
 .grid div{
     height:40px;
     width:40px;
+    font-size:1.5rem;
+    font-family: Arial, Helvetica, sans-serif;
+    font-weight: 700;
+    display:flex;
+    justify-content: center;
+    align-items: center;
 }
 
-.bomb{
-    background-color: orange;
+/* .bomb{
+    background-color: red;
+} */
+
+.bomb, .valid{
+    border: 5px solid;
+    border-color: #50ee50 #29a829 #29a829 #50ee50;
+    box-sizing: border-box;
 }
 
 .checked{
-    background-color: green;
+    background-color: #F99C4F;
+    border:2px solid #E77E27;
+    box-sizing: border-box;
+}
+
+.flag-count, .timer{
+    font-size:2.5rem;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-family: 'IBM Plex Mono', monospace;
+    color:white;
+}
+
+.stats{
+    background-color:#096909;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    padding:1em;
 }

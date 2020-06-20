@@ -1,9 +1,15 @@
 const grid = document.querySelector('.grid');
+let flagCount = document.querySelector('.flag-count');
+let timeCount = document.querySelector('.timer');
+let timerStarted = false;
 let width = 10;
 let bombAmount = 20;
 let flags = 0;
 let squares = [];
 let isGameOver = false;
+let seconds = 0;
+flagCount.innerHTML = '🚩' + bombAmount;
+timeCount.innerHTML = '⏰ ' + checkNumber(seconds) + seconds;
 
 //create board
 function createBoard(){
@@ -66,11 +72,13 @@ function addFlag(square){
       square.classList.add('flag');
       square.innerHTML = '🚩';
       flags++;
+      flagCount.innerHTML = '🚩' + (bombAmount - flags);
       checkForWin();
     }else{
       square.classList.remove('flag');
       square.innerHTML = '';
       flags--;
+      flagCount.innerHTML = '🚩' + (bombAmount - flags);
     }
   }
 }
@@ -78,12 +86,15 @@ function addFlag(square){
 
 //click on square actions
 function click(square){
+    if(timerStarted == false){
+      timer();
+    }
     let currentId = square.id;
     if(isGameOver) return;
     if(square.classList.contains('checked') || square.classList.contains('flag')) return;
     if(square.classList.contains('bomb')){
-        gameOver(square);
-    } else{
+      gameOver(square);
+      } else{
         let total = square.getAttribute('data');
         if(total !=0){
             square.classList.add('checked');
@@ -176,8 +187,27 @@ function checkForWin(){
     }
     if(matches === bombAmount){
       console.log('You Win!')
+      isGameOver = true;
     }
   }
 }
 
+//clock
+
+function timer(){
+  timerStarted = true;
+  setInterval(()=>{
+    if(isGameOver)return
+    timeCount.innerHTML = '⏰ ' + checkNumber(seconds) + seconds;
+    seconds++
+  }, 1000)
+}
+
+function checkNumber(seconds){
+  if(seconds < 10){
+    return 0;
+  }else{
+    return '';
+  }
+}
 
