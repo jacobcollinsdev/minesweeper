@@ -10,7 +10,7 @@
 .grid{
     height:400px;
     width:400px;
-    border:10px solid #0C920C;
+    border:10px solid #51D351;
     display:flex;
     flex-wrap: wrap;
     /* background-color: rgb(207, 207, 207); */
@@ -54,7 +54,7 @@
 }
 
 .stats{
-    background-color:#096909;
+    background-color:#0C920C;
     display: grid;
     grid-template-columns: 1fr 1fr;
     padding:1em;
